@@ -5,7 +5,6 @@ import java.util.List;
 public class AgenteAdministrativo extends Empleado {
     // Constructor por defecto
     public AgenteAdministrativo() {
-        super();
     }
 
     // Constructor parametrizado

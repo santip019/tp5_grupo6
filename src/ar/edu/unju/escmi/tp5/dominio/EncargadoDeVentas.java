@@ -3,7 +3,6 @@ package ar.edu.unju.escmi.tp5.dominio;
 public class EncargadoDeVentas extends Empleado {
     // Constructor por defecto
     public EncargadoDeVentas() {
-        super();
     }
 
     // Constructor parametrizado

@@ -9,11 +9,6 @@ public class Producto {
 
     // Constructor por defecto
     public Producto() {
-        this.codigoProducto = 0;
-        this.descripcion = "";
-        this.precio = 0.0;
-        this.stock = 0;
-        this.descuento = 0.0;
     }
 
     // Constructor parametrizado

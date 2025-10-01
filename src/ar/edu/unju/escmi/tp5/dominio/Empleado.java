@@ -10,11 +10,6 @@ public class Empleado {
 
     // Constructor por defecto
     public Empleado() {
-        this.idEmpleado = 0;
-        this.nombre = "";
-        this.apellido = "";
-        this.dni = 0;
-        this.domicilio = "";
     }
 
     // Constructor parametrizado
