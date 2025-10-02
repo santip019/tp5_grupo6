@@ -13,11 +13,12 @@ public class ClienteMinorista extends Cliente {
         this.obraSocial = obraSocial;
     }
 
-    public String getObraSocial() { 
-        return obraSocial; 
+    public String getObraSocial() {
+        return obraSocial;
     }
-    public void setObraSocial(String obraSocial) { 
-        this.obraSocial = obraSocial; 
+
+    public void setObraSocial(String obraSocial) {
+        this.obraSocial = obraSocial;
     }
 
     @Override
@@ -28,6 +29,21 @@ public class ClienteMinorista extends Cliente {
                 ", domicilio='" + domicilio + '\'' +
                 ", obraSocial='" + obraSocial + '\'' +
                 '}';
+    }
+
+    public double aplicarDescuento(double precio) {
+        if (this.dni != 0) {
+            if (this.obraSocial.equalsIgnoreCase("PAMI")) {
+                System.out.println("El cliente tiene un descuento del 10% en la compra.");
+                return precio * 0.9; // Aplica 10% de descuento
+            } else {
+                System.out.println("El cliente no tiene descuento.");
+                return precio; // No hay descuento
+            }
+        } else {
+            System.out.println("El cliente no esta identificado.");
+            return precio;
+        }
     }
 
 }
