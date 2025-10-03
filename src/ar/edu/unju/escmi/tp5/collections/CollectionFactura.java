@@ -9,7 +9,7 @@ public class CollectionFactura {
     public static Map<Byte, Factura> facturas = new HashMap<>();
 
     public static void guardarFactura(Factura factura) {
-        //facturas.put(factura.getNumeroFactura(), factura);
+        // facturas.put(factura.getNumeroFactura(), factura);
     }
 
     public static Factura buscarFactura(byte numeroFactura) {
