@@ -80,5 +80,25 @@ public class EncargadoDeVentas extends Empleado {
 
         sc.close();
     }
+    
+    public boolean actualizarStock(int codigoProducto, int cantidad) {
+        Producto p = CollectionProducto.buscarProducto(codigoProducto);
+        if (p == null) {
+            System.out.println("Producto con código " + codigoProducto + " no encontrado.");
+            return false;
+        }
+        if (cantidad <= 0) {
+            System.out.println("La cantidad debe ser mayor a 0.");
+            return false;
+        }
+        if (p.getStock() >= cantidad) {
+            p.setStock(p.getStock() - cantidad);
+            System.out.println("Stock actualizado. Nuevo stock: " + p.getStock());
+            return true;
+        } else {
+            System.out.println("Stock insuficiente. Disponible: " + p.getStock());
+            return false;
+        }
+    }
 
 }

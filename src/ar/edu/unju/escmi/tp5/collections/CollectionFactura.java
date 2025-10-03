@@ -16,4 +16,7 @@ public class CollectionFactura {
         return facturas.get(numeroFactura);
     }
 
+    public static Map<Byte, Factura> getFacturas() {
+        return facturas;
+    }
 }
