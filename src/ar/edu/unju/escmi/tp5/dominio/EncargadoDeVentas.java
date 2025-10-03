@@ -6,9 +6,7 @@ public class EncargadoDeVentas extends Empleado {
     }
 
     // Constructor parametrizado
-    public EncargadoDeVentas(int idEmpleado, String nombre, String apellido, int dni, String domicilio,
-            String areaVentas,
-            int numeroClientesAtendidos) {
+    public EncargadoDeVentas(int idEmpleado, String nombre, String apellido, int dni, String domicilio) {
         super(idEmpleado, nombre, apellido, dni, domicilio);
 
     }

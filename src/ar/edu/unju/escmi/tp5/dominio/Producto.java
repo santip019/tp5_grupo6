@@ -63,8 +63,20 @@ public class Producto {
         return descuento;
     }
 
-    // Metodos
-    // ActualizarStock
+    // ActualizarStock // Cantidad es pasado como parametro
+    void actualizarStock(int cantidad) {
+        if (stock <= 0) {
+            System.out.println("No hay stock disponible.");
+        }
+
+        if (cantidad > 0) {
+            stock += cantidad;
+            System.out.println("Stock actualizado. Nuevo stock: " + stock);
+        } else {
+            System.out.println("Cantidad invalida. No se puede actualizar el stock.");
+        }
+    }
+
 }
 
 // Atributos
