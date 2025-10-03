@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
 import ar.edu.unju.escmi.tp5.collections.CollectionProducto;
-import ar.edu.unju.escmi.tp5.dominio.Producto;
 
 public class EncargadoDeVentas extends Empleado {
     // Constructor por defecto
