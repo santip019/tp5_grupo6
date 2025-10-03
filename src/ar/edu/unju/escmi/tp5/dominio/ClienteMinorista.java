@@ -42,7 +42,7 @@ public class ClienteMinorista extends Cliente {
             }
         } else {
             System.out.println("El cliente no esta identificado.");
-            return precio;
+            return precio; // No hay descuento
         }
     }
 
