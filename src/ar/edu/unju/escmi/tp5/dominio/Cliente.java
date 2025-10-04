@@ -20,29 +20,32 @@ public class Cliente {
     }
 
     // Getters y Setters
-    public int getDni() { 
-        return dni; 
-    }
-    public void setDni(int dni) { 
-        this.dni = dni; 
+    public int getDni() {
+        return dni;
     }
 
-    public String getNombre() { 
-        return nombre; 
+    public void setDni(int dni) {
+        this.dni = dni;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
     public void setNombre(String nombre) {
-        this.nombre = nombre; 
+        this.nombre = nombre;
     }
 
-    public String getDomicilio() { 
-        return domicilio; 
-    }
-    public void setDomicilio(String domicilio) { 
-        this.domicilio = domicilio; 
+    public String getDomicilio() {
+        return domicilio;
     }
 
-    // Método para buscar factura 
-    public void buscarFactura(byte numeroFactura) {
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    // Método para buscar factura
+    public static void buscarFactura(byte numeroFactura) {
         Factura factura = CollectionFactura.buscarFactura(numeroFactura);
         if (factura != null) {
             System.out.println("Factura encontrada: " + factura);
