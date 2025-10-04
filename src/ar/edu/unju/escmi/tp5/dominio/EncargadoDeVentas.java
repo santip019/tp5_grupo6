@@ -30,7 +30,9 @@ public class EncargadoDeVentas extends Empleado {
 
     // MostrarVentas
     public void mostrarVentas() { // Muestra todas las facturas registradas
+
         System.out.println("Listado de ventas:");
+
         for (Factura factura : CollectionFactura.getFacturas().values()) { // Recorre todas las facturas en la colección
             System.out.println("**************  Factura N° " + factura.getNumeroFactura() + " ******************");
             System.out.println("Cliente: " + factura.getDni());
