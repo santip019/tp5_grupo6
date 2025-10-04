@@ -6,6 +6,7 @@ import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
 import ar.edu.unju.escmi.tp5.collections.CollectionProducto;
 
 public class EncargadoDeVentas extends Empleado {
+
     // Constructor por defecto
     public EncargadoDeVentas() {
     }
@@ -28,7 +29,8 @@ public class EncargadoDeVentas extends Empleado {
     }
 
     // MostrarVentas
-    public void mostrarVentas() {
+    public void mostrarVentas() { // Muestra todas las facturas registradas
+
         System.out.println("Listado de ventas:");
 
         for (Factura factura : CollectionFactura.getFacturas().values()) { // Recorre todas las facturas en la colección
@@ -44,10 +46,10 @@ public class EncargadoDeVentas extends Empleado {
     }
 
     // MostrarTotalVentas
-    public void mostrarTotalVentas() {
+    public void mostrarTotalVentas() { // Muestra la suma total de todas las ventas
         double totalV = 0;
 
-        for (Factura factura : CollectionFactura.getFacturas().values()) {
+        for (Factura factura : CollectionFactura.getFacturas().values()) { // Recorre todas las facturas en la colección
             totalV += factura.calcularTotal();
         }
 
@@ -57,7 +59,7 @@ public class EncargadoDeVentas extends Empleado {
     }
 
     // VerificarStock
-    public void verificarStock() {
+    public void verificarStock() { // Verifica el stock de un producto por su código
         Scanner sc = new Scanner(System.in);
         System.out.print("Ingrese el código del producto: ");
         int codigo = sc.nextInt();// Lee el código del producto
