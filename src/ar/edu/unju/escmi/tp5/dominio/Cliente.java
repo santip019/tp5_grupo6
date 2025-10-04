@@ -1,5 +1,7 @@
 package ar.edu.unju.escmi.tp5.dominio;
 
+import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
+
 public class Cliente {
     // Atributos protegidos
     protected int dni;
@@ -39,9 +41,14 @@ public class Cliente {
         this.domicilio = domicilio; 
     }
 
-    // Método para buscar factura (lo completamos despues)
+    // Método para buscar factura 
     public void buscarFactura(byte numeroFactura) {
-        // agregamos la logica
+        Factura factura = CollectionFactura.buscarFactura(numeroFactura);
+        if (factura != null) {
+            System.out.println("Factura encontrada: " + factura);
+        } else {
+            System.out.println("No se encontró la factura con número: " + numeroFactura);
+        }
     }
 
     @Override

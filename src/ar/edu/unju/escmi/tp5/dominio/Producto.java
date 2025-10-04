@@ -1,5 +1,7 @@
 package ar.edu.unju.escmi.tp5.dominio;
 
+import ar.edu.unju.escmi.tp5.collections.CollectionProducto;
+
 public class Producto {
     private int codigoProducto;
     private String descripcion;
@@ -62,20 +64,28 @@ public class Producto {
     public double getDescuento() {
         return descuento;
     }
-
-    // ActualizarStock // Cantidad es pasado como parametro
-    void actualizarStock(int cantidad) {
-        if (stock <= 0) {
-            System.out.println("No hay stock disponible.");
+    
+    // Cantidad es pasado como parametro
+    public boolean actualizarStock(int codigoProducto, int cantidad) {
+        Producto p = CollectionProducto.buscarProducto(codigoProducto);
+        if (p == null) {
+            System.out.println("Producto con código " + codigoProducto + " no encontrado.");
+            return false;
         }
-
-        if (cantidad > 0) {
-            stock += cantidad;
-            System.out.println("Stock actualizado. Nuevo stock: " + stock);
+        if (cantidad <= 0) {
+            System.out.println("La cantidad debe ser mayor a 0.");
+            return false;
+        }
+        if (p.getStock() >= cantidad) {
+            p.setStock(p.getStock() - cantidad);
+            System.out.println("Stock actualizado. Nuevo stock: " + p.getStock());
+            return true;
         } else {
-            System.out.println("Cantidad invalida. No se puede actualizar el stock.");
+            System.out.println("Stock insuficiente. Disponible: " + p.getStock());
+            return false;
         }
     }
+    
 
 }
 
