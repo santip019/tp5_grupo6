@@ -62,15 +62,15 @@ public class AgenteAdministrativo extends Empleado {
                 if (cliente instanceof ClienteMayorista) {
                     precioUnitario = precioUnitario / 2; // precio mayorista
                 } else if (cliente instanceof ClienteMinorista) {
-                    ClienteMinorista cm = (ClienteMinorista) cliente;
+                    ClienteMinorista cm = (ClienteMinorista) cliente;// comentar y explicar casteo
                     if (cm.getObraSocial().equalsIgnoreCase("PAMI")) {
                         // aplica descuento del 10% sobre total luego
-                        factura.setDescuentoMinorista(true);
+                        factura.setDescuentoMinorista(true);// cambiarlo a que use el metodo tieneDescuento de cliente minorista
                     }
                 }
 
                 // Crear detalle
-                Detalle detalle = new Detalle(producto, cantidad, precioUnitario);
+                Detalle detalle = new Detalle(producto, cantidad);
                 factura.agregarDetalle(detalle);
 
                 // Actualizar stock
