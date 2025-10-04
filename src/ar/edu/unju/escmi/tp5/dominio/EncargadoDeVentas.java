@@ -28,21 +28,19 @@ public class EncargadoDeVentas extends Empleado {
     }
 
     // MostrarVentas
-    public void mostrarVentas() {
+    public void mostrarVentas() { // Muestra todas las facturas registradas
+
         System.out.println("Listado de ventas:");
-        for (Factura factura : CollectionFactura.getFacturas().values()) {
-            System.out.println("**************  Factura N° " + factura.getNumeroFactura() + " ******************");
+
+        for (Factura factura : CollectionFactura.getFacturas().values()) { // Recorre todas las facturas en la colección
+            System.out.println("**  Factura N° " + factura.getNumeroFactura() + " **");
             System.out.println("Cliente: " + factura.getDni());
             System.out.println("Fecha: " + factura.getFecha());
 
-            for (Detalle d : factura.getDetalles()) {
-                System.out.println("Producto: " + d.getDescripcion() +
-                        " | Cantidad: " + d.getCantidad() +
-                        " | Importe: $" + d.calcularImporteConDescuento());
-            }
+            // Llamamos al método mostrarFactura() de cada factura
+            factura.mostrarFactura();
 
-            System.out.println("Total: $" + factura.calcularTotal());
-            System.out.println("---------------------------------");
+            System.out.println("**");
         }
     }
 
