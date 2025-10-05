@@ -28,7 +28,7 @@ public class EncargadoDeVentas extends Empleado {
     }
 
     // MostrarVentas
-    public void mostrarVentas() { // Muestra todas las facturas registradas
+    public static void mostrarVentas() { // Muestra todas las facturas registradas
 
         System.out.println("Listado de ventas:");
 
@@ -45,7 +45,7 @@ public class EncargadoDeVentas extends Empleado {
     }
 
     // MostrarTotalVentas
-    public void mostrarTotalVentas() {
+    public static void mostrarTotalVentas() {
         double totalV = 0;
 
         for (Factura factura : CollectionFactura.getFacturas().values()) {
@@ -58,7 +58,7 @@ public class EncargadoDeVentas extends Empleado {
     }
 
     // VerificarStock
-    public void verificarStock() {
+    public static void verificarStock() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Ingrese el código del producto: ");
         int codigo = sc.nextInt();// Lee el código del producto
@@ -77,26 +77,6 @@ public class EncargadoDeVentas extends Empleado {
         }
 
         sc.close();
-    }
-    
-    public boolean actualizarStock(int codigoProducto, int cantidad) {
-        Producto p = CollectionProducto.buscarProducto(codigoProducto);
-        if (p == null) {
-            System.out.println("Producto con código " + codigoProducto + " no encontrado.");
-            return false;
-        }
-        if (cantidad <= 0) {
-            System.out.println("La cantidad debe ser mayor a 0.");
-            return false;
-        }
-        if (p.getStock() >= cantidad) {
-            p.setStock(p.getStock() - cantidad);
-            System.out.println("Stock actualizado. Nuevo stock: " + p.getStock());
-            return true;
-        } else {
-            System.out.println("Stock insuficiente. Disponible: " + p.getStock());
-            return false;
-        }
     }
 
 }
