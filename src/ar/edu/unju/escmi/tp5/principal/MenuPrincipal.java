@@ -66,11 +66,14 @@ public class MenuPrincipal {
                         switch (op2) {
                             case 1:
                                 System.out.println("Mostrar ventas");
-                                EncargadoDeVentas.mostrarVentas();
+                                EncargadoDeVentas.mostrarVentas(); // Muestra todas las ventas
                                 break;
                             case 2:
                                 System.out.println("Verificar Stock");
-                                EncargadoDeVentas.verificarStock();
+                                System.out.print("Ingrese el código del producto: ");
+                                int codigoProducto = sc.nextInt();
+                                EncargadoDeVentas.verificarStock(codigoProducto); // Pasa el código como argumento
+                                sc.nextLine(); // Limpiar el buffer
                                 break;
                             case 3:
                                 System.out.println("Mostrar Total de ventas");

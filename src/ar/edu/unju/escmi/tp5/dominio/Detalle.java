@@ -55,7 +55,7 @@ public class Detalle {
         this.descripcion = descripcion;
     }
 
-     public int getDescuento() {
+    public int getDescuento() {
         return descuento;
     }
 
@@ -65,15 +65,15 @@ public class Detalle {
 
     /*********/
 
-    public double aplicarDescuento () {
+    public double aplicarDescuento() {
         return (descuento * precioUnitario) / 100;
     }
 
-    public double calcularImporteSinDescuento () {
+    public double calcularImporteSinDescuento() {
         return cantidad * precioUnitario;
     }
 
-    public double calcularImporteConDescuento () {
+    public double calcularImporteConDescuento() {
         return cantidad * aplicarDescuento();
     }
 

@@ -1,7 +1,5 @@
 package ar.edu.unju.escmi.tp5.dominio;
 
-import java.util.Scanner;
-
 import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
 import ar.edu.unju.escmi.tp5.collections.CollectionProducto;
 
@@ -33,14 +31,14 @@ public class EncargadoDeVentas extends Empleado {
         System.out.println("Listado de ventas:");
 
         for (Factura factura : CollectionFactura.getFacturas().values()) { // Recorre todas las facturas en la colección
-            System.out.println("**  Factura N° " + factura.getNumeroFactura() + " **");
+            System.out.println("**************  Factura N° " + factura.getNumeroFactura() + " ******************");
             System.out.println("Cliente: " + factura.getDni());
             System.out.println("Fecha: " + factura.getFecha());
 
             // Llamamos al método mostrarFactura() de cada factura
             factura.mostrarFactura();
 
-            System.out.println("**");
+            System.out.println("**************************************");
         }
     }
 
@@ -58,25 +56,23 @@ public class EncargadoDeVentas extends Empleado {
     }
 
     // VerificarStock
-    public static void verificarStock() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Ingrese el código del producto: ");
-        int codigo = sc.nextInt();// Lee el código del producto
+    public static void verificarStock(int codigo) { // Se añade el código como parámetro
 
-        Producto producto = CollectionProducto.buscarProducto(codigo);// Busca el producto en la colección
+        Producto producto = CollectionProducto.buscarProducto(codigo); // Busca el producto en la colección
 
-        if (producto != null) {// Si el producto existe
+        if (producto != null) { // Si el producto existe
+
             System.out.println("Producto encontrado: " + producto.getDescripcion());
-            if (producto.getStock() > 0) {// Si hay stock
+
+            if (producto.getStock() > 0) { // Si hay stock
                 System.out.println("El producto está en stock (" + producto.getStock() + " unidades).");
-            } else {// Si no hay stock
+            } else { // Si no hay stock
                 System.out.println("El producto no tiene stock.");
             }
-        } else {// Si el producto no existe
+
+        } else { // Si el producto no existe
             System.out.println("No existe un producto con ese código.");
         }
-
-        sc.close();
     }
 
 }

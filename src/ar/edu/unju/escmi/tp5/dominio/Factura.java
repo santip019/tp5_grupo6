@@ -21,7 +21,6 @@ public class Factura {
         this.fecha = fecha;
     }
 
-
     public byte getNumeroFactura() {
         return numeroFactura;
     }
@@ -78,12 +77,11 @@ public class Factura {
         System.out.println("Cant.\tProducto\tPrecio Unit.\tImporte");
         for (Detalle d : detalles) {
             System.out.println(d.getCantidad() + "\t" +
-                               d.getDescripcion() + "\t" +
-                               d.getPrecioUnitario() + "\t\t" +
-                               d.calcularImporteSinDescuento());
+                    d.getDescripcion() + "\t" +
+                    d.getPrecioUnitario() + "\t\t" +
+                    d.calcularImporteSinDescuento());
         }
         System.out.println("-------------------");
         System.out.println("TOTAL: " + calcularTotal());
     }
 }
-
