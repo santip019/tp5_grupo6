@@ -2,6 +2,7 @@ package ar.edu.unju.escmi.tp5.dominio;
 
 public class Detalle {
     private byte cantidad;
+    private Producto producto;
     private double precioUnitario;
     private int codigoproducto;
     private String descripcion;
@@ -12,12 +13,12 @@ public class Detalle {
 
     /*******/
 
-    public Detalle(byte cantidad, double precioUnitario, int codigoproducto, String descripcion, int descuento) {
+    public Detalle(Producto producto, byte cantidad) {
         this.cantidad = cantidad;
-        this.precioUnitario = precioUnitario;
-        this.codigoproducto = codigoproducto;
-        this.descripcion = descripcion;
-        this.descuento = descuento;
+        this.producto = producto;
+        this.precioUnitario = producto.getPrecio();
+        this.codigoproducto = producto.getCodigoProducto();
+        this.descripcion = producto.getDescripcion();
     }
 
     /******/
@@ -54,7 +55,7 @@ public class Detalle {
         this.descripcion = descripcion;
     }
 
-     public int getDescuento() {
+    public int getDescuento() {
         return descuento;
     }
 
@@ -64,15 +65,15 @@ public class Detalle {
 
     /*********/
 
-    public double aplicarDescuento () {
+    public double aplicarDescuento() {
         return (descuento * precioUnitario) / 100;
     }
 
-    public double calcularImporteSinDescuento () {
+    public double calcularImporteSinDescuento() {
         return cantidad * precioUnitario;
     }
 
-    public double calcularImporteConDescuento () {
+    public double calcularImporteConDescuento() {
         return cantidad * aplicarDescuento();
     }
 

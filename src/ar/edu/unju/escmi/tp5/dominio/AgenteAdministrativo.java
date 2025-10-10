@@ -8,6 +8,7 @@ import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
 
 public class AgenteAdministrativo extends Empleado {
     private static Scanner scanner = new Scanner(System.in);
+
     // Constructor por defecto
     public AgenteAdministrativo() {
     }
@@ -62,15 +63,16 @@ public class AgenteAdministrativo extends Empleado {
                 if (cliente instanceof ClienteMayorista) {
                     precioUnitario = precioUnitario / 2; // precio mayorista
                 } else if (cliente instanceof ClienteMinorista) {
-                    ClienteMinorista cm = (ClienteMinorista) cliente;
+                    ClienteMinorista cm = (ClienteMinorista) cliente;// comentar y explicar casteo
                     if (cm.getObraSocial().equalsIgnoreCase("PAMI")) {
                         // aplica descuento del 10% sobre total luego
-                        factura.setDescuentoMinorista(true);
+                        factura.setDescuentoMinorista(true);// cambiarlo a que use el metodo tieneDescuento de cliente
+                                                            // minorista
                     }
                 }
 
                 // Crear detalle
-                Detalle detalle = new Detalle(producto, cantidad, precioUnitario);
+                Detalle detalle = new Detalle(producto, cantidad);
                 factura.agregarDetalle(detalle);
 
                 // Actualizar stock
@@ -90,6 +92,7 @@ public class AgenteAdministrativo extends Empleado {
         CollectionFactura.guardarFactura(factura);
         System.out.println("Factura generada exitosamente:\n" + factura);
     }
+
     @Override
     public String toString() {
         return "AgenteAdministrativo{" +
@@ -101,4 +104,3 @@ public class AgenteAdministrativo extends Empleado {
                 '}';
     }
 }
-

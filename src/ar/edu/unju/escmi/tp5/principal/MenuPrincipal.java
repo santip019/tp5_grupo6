@@ -2,6 +2,9 @@ package ar.edu.unju.escmi.tp5.principal;
 
 import java.util.Scanner;
 
+import ar.edu.unju.escmi.tp5.dominio.EncargadoDeVentas;
+import ar.edu.unju.escmi.tp5.dominio.Cliente;
+
 public class MenuPrincipal {
 
     static void menuCliente() {
@@ -18,6 +21,10 @@ public class MenuPrincipal {
             switch (op) {
                 case 1:
                     System.out.println("Buscar Factura");
+                    System.out.print("Ingrese el numero de factura a buscar: ");
+                    byte numeroFactura = sc.nextByte();
+                    sc.nextLine(); // Para limpiar el buffer del scanner
+                    Cliente.buscarFactura(numeroFactura);
                     break;
                 case 2:
                     System.out.println("Saliendo del Menu de Clientes...");
@@ -59,12 +66,18 @@ public class MenuPrincipal {
                         switch (op2) {
                             case 1:
                                 System.out.println("Mostrar ventas");
+                                EncargadoDeVentas.mostrarVentas();
                                 break;
                             case 2:
                                 System.out.println("Verificar Stock");
+                                System.out.print("Ingrese el código del producto: ");
+                                int codigoProducto = sc.nextInt();
+                                EncargadoDeVentas.verificarStock(codigoProducto); // Pasa el código como argumento
+                                sc.nextLine(); // Limpiar el buffer
                                 break;
                             case 3:
                                 System.out.println("Mostrar Total de ventas");
+                                EncargadoDeVentas.mostrarTotalVentas();
                                 break;
                             case 4:
                                 System.out.println("Saliendo del Menu Encargado de Ventas...");
@@ -131,10 +144,10 @@ public class MenuPrincipal {
 
             switch (op) {
                 case 1:
-                    menuCliente();
+                    menuCliente(); // Llama al menu de clientes
                     break;
                 case 2:
-                    menuEmpleado();
+                    menuEmpleado(); // Llama al menu de empleados
                     break;
                 case 3:
                     System.out.println("Saliendo del programa...");
