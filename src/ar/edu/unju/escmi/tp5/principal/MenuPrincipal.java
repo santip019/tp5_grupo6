@@ -66,7 +66,7 @@ public class MenuPrincipal {
                         switch (op2) {
                             case 1:
                                 System.out.println("Mostrar ventas");
-                                EncargadoDeVentas.mostrarVentas();
+                                EncargadoDeVentas.mostrarVentas(); // Muestra todas las ventas
                                 break;
                             case 2:
                                 System.out.println("Verificar Stock");
