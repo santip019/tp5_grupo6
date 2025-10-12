@@ -12,12 +12,12 @@ public class Producto {
     }
 
     // Constructor parametrizado
-    public Producto(int codigoProducto, String descripcion, double precio, int stock, double descuento) {
+    public Producto(int codigoProducto, String descripcion, double precio, double descuento) {
         this.codigoProducto = codigoProducto;
         this.descripcion = descripcion;
         this.precio = precio;
-        this.stock = stock;
         this.descuento = descuento;
+        stock = 5000;
     }
 
     // Setters para modificar los atributos
