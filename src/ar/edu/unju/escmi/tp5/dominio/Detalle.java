@@ -1,29 +1,26 @@
 package ar.edu.unju.escmi.tp5.dominio;
 
 public class Detalle {
-    private byte cantidad;
+    private int cantidad;
     private Producto producto;
-    private double precioUnitario;
-    private int codigoproducto;
-    private String descripcion;
-    private int descuento;
 
     public Detalle() {
     }
 
-    /*******/
-
-    public Detalle(Producto producto, byte cantidad) {
+    public Detalle(Producto producto, int cantidad) {
         this.cantidad = cantidad;
         this.producto = producto;
-        this.precioUnitario = producto.getPrecio();
-        this.codigoproducto = producto.getCodigoProducto();
-        this.descripcion = producto.getDescripcion();
     }
 
-    /******/
+    public Producto getProducto() {
+        return producto;
+    }
 
-    public byte getCantidad() {
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+    
+    public int getCantidad() {
         return cantidad;
     }
 
@@ -31,50 +28,9 @@ public class Detalle {
         this.cantidad = cantidad;
     }
 
-    public double getPrecioUnitario() {
-        return precioUnitario;
+    public double calcularImporte() {
+        return cantidad * producto.getPrecio();
     }
 
-    public void setPrecioUnitario(double precioUnitario) {
-        this.precioUnitario = precioUnitario;
-    }
-
-    public int getCodigoproducto() {
-        return codigoproducto;
-    }
-
-    public void setCodigoproducto(int codigoproducto) {
-        this.codigoproducto = codigoproducto;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public int getDescuento() {
-        return descuento;
-    }
-
-    public void setDescuento(int descuento) {
-        this.descuento = descuento;
-    }
-
-    /*********/
-
-    public double aplicarDescuento() {
-        return (descuento * precioUnitario) / 100;
-    }
-
-    public double calcularImporteSinDescuento() {
-        return cantidad * precioUnitario;
-    }
-
-    public double calcularImporteConDescuento() {
-        return cantidad * aplicarDescuento();
-    }
 
 }

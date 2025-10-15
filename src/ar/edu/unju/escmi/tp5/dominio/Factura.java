@@ -20,6 +20,23 @@ public class Factura {
         this.fecha = fecha;
     }
 
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public static int getNumeroFactura() {
+        return numeroFactura;
+    }
+
+    public static void setNumeroFactura(int numeroFactura) {
+        Factura.numeroFactura = numeroFactura;
+    }
+
     public LocalDate getFecha() {
         return fecha;
     }
@@ -43,7 +60,7 @@ public class Factura {
     public double calcularTotal() {
         double total = 0;
         for (Detalle d : detalles) {
-            total += d.calcularImporte;
+            total += d.calcularImporte();
         }
         return total;
     }
@@ -59,8 +76,8 @@ public class Factura {
         System.out.println("DETALLE:");
         for (Detalle d : detalles) {
             System.out.println("Cantidad: " + d.getCantidad() + "\t" +
-                    "Descripción: " + d.getDescripcion() + "\t" +
-                    "Precio Unitario: " + d.getPrecioUnitario() + "\t");
+                    "Descripción: " + d.getProducto().getDescripcion() + "\t" +
+                    "Precio Unitario: " + d.getProducto().getPrecio() + "\t");
         }
         System.out.println("-------------------");
         System.out.println("TOTAL: " + calcularTotal());
