@@ -1,5 +1,6 @@
 package ar.edu.unju.escmi.tp5.principal;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import ar.edu.unju.escmi.tp5.collections.CollectionProducto;
@@ -141,7 +142,8 @@ public class MenuPrincipal {
                                 }
 
                                 // Paso 2: Crear factura
-                                Factura factura = new Factura(cliente);
+                                LocalDate fecha = LocalDate.now();
+                                Factura factura = new Factura(fecha);
                                 boolean seguirComprando = true;
                                 while (seguirComprando) {
                                     // Paso 3: Selección de producto
