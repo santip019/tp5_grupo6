@@ -16,25 +16,17 @@ public class Factura {
 
     }
 
-    public Factura(LocalDate fecha) {
+    public Factura(LocalDate fecha, Cliente cliente) {
         this.fecha = fecha;
+        this.cliente = cliente;
     }
-
 
     public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
     public static int getNumeroFactura() {
         return numeroFactura;
-    }
-
-    public static void setNumeroFactura(int numeroFactura) {
-        Factura.numeroFactura = numeroFactura;
     }
 
     public LocalDate getFecha() {

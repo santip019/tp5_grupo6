@@ -143,7 +143,7 @@ public class MenuPrincipal {
 
                                 // Paso 2: Crear factura
                                 LocalDate fecha = LocalDate.now();
-                                Factura factura = new Factura(fecha);
+                                Factura factura = new Factura(fecha, cliente);
                                 boolean seguirComprando = true;
                                 while (seguirComprando) {
                                     // Paso 3: Selección de producto
