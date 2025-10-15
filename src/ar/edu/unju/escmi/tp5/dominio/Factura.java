@@ -69,9 +69,10 @@ public class Factura {
         for (Detalle d : detalles) {
             System.out.println("Cantidad: " + d.getCantidad() + "\t" +
                     "Descripción: " + d.getProducto().getDescripcion() + "\t" +
-                    "Precio Unitario: " + d.getProducto().getPrecio() + "\t");
+                    "Precio Unitario: " + d.getProducto().getPrecio() + "\t" +
+                    "Importe: " + d.calcularImporte());
+            System.out.println("-------------------");
         }
-        System.out.println("-------------------");
         System.out.println("TOTAL: " + calcularTotal());
     }
 }
