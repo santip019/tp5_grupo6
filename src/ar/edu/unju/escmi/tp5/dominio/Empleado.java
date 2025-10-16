@@ -1,6 +1,6 @@
 package ar.edu.unju.escmi.tp5.dominio;
 
-public class Empleado {
+public abstract class Empleado {
     // Atributos de la clase Empleados
     protected int idEmpleado;
     protected String nombre;

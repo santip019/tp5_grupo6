@@ -8,8 +8,8 @@ public class ClienteMinorista extends Cliente {
     }
 
     // Constructor parametrizado(con los atributos de la superclase)
-    public ClienteMinorista(int dni, String nombre, String domicilio, String obraSocial) {
-        super(dni, nombre, domicilio);
+    public ClienteMinorista(int dni, String nombre, String apellido, String direccion, String obraSocial) {
+        super(dni, nombre, direccion, apellido);
         this.obraSocial = obraSocial;
     }
 
@@ -26,7 +26,7 @@ public class ClienteMinorista extends Cliente {
         return "ClienteMinorista{" +
                 "dni=" + dni +
                 ", nombre='" + nombre + '\'' +
-                ", domicilio='" + domicilio + '\'' +
+                ", direccion='" + direccion + '\'' +
                 ", obraSocial='" + obraSocial + '\'' +
                 '}';
     }
