@@ -48,7 +48,8 @@ public class Cliente {
     public static void buscarFactura(byte numeroFactura) {
         Factura factura = CollectionFactura.buscarFactura(numeroFactura);
         if (factura != null) {
-            System.out.println("Factura encontrada: " + factura);
+            System.out.println("Factura encontrada: ");
+            factura.mostrarFactura();
         } else {
             System.out.println("No se encontró la factura con número: " + numeroFactura);
         }

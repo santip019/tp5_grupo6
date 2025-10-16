@@ -10,13 +10,14 @@ public class Factura {
     private List<Detalle> detalles = new ArrayList<>();
 
     private static int contador = 1;
-    private static int numeroFactura = contador++;
+    private int numeroFactura;
 
     public Factura() {
 
     }
 
     public Factura(LocalDate fecha, Cliente cliente) {
+        this.numeroFactura = contador ++;
         this.fecha = fecha;
         this.cliente = cliente;
     }
@@ -25,7 +26,7 @@ public class Factura {
         return cliente;
     }
 
-    public static int getNumeroFactura() {
+    public int getNumeroFactura() {
         return numeroFactura;
     }
 
@@ -59,7 +60,7 @@ public class Factura {
 
     public void mostrarFactura() {
         System.out.println("----- FACTURA -----");
-        System.out.println("N°: " + numeroFactura);
+        System.out.println("N°: " + getNumeroFactura());
         System.out.println("Fecha: " + fecha);
         System.out.println("Cliente: " + cliente.nombre);
         System.out.println("DNI: " + cliente.dni);
@@ -67,9 +68,10 @@ public class Factura {
         System.out.println("-------------------");
         System.out.println("DETALLE:");
         for (Detalle d : detalles) {
-            System.out.println("Cantidad: " + d.getCantidad() + "\t" +
-                    "Descripción: " + d.getProducto().getDescripcion() + "\t" +
-                    "Precio Unitario: " + d.getProducto().getPrecio() + "\t" +
+            System.out.println("Cantidad: " + d.getCantidad() + "\n" +
+                    "Descripción: " + d.getProducto().getDescripcion() + "\n" +
+                    "Precio Unitario: " + d.getProducto().getPrecio() + "\n" +
+                    "Precio Unitario con Descuento: " + d.getPrecioCalculadoConDescuento() + "\n" +
                     "Importe: " + d.calcularImporte());
             System.out.println("-------------------");
         }

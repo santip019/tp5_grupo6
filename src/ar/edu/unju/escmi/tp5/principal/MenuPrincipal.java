@@ -3,6 +3,8 @@ package ar.edu.unju.escmi.tp5.principal;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import ar.edu.unju.escmi.tp5.collections.CollectionCliente;
+import ar.edu.unju.escmi.tp5.collections.CollectionEmpleado;
 import ar.edu.unju.escmi.tp5.collections.CollectionProducto;
 import ar.edu.unju.escmi.tp5.dominio.AgenteAdministrativo;
 import ar.edu.unju.escmi.tp5.dominio.EncargadoDeVentas;
@@ -156,16 +158,21 @@ public class MenuPrincipal {
                                         continue;
                                     }
 
-                                    System.out.print("Ingrese la cantidad: ");
+                                    System.out.print("Ingrese la cantidad (de paquetes si es mayorista, de unidades si es minorista): ");
                                     int cantidad = sc.nextInt();
                                     sc.nextLine(); // Para limpiar el buffer del scanner
 
+                                    double precioUnitario = producto.getPrecio();
 
                                     if (producto.getStock() < cantidad) {
                                         System.out.println("Stock insuficiente. Stock disponible: " + producto.getStock());
                                     } else {
-                                        // Paso 4: Calcular precio según tipo de cliente
-                                        double precioUnitario = producto.getPrecio();
+                                        // Paso 4: Calcular precio según tipo de cliente y descuento de producto
+                                        if (producto.getDescuento() == 25) {
+                                            precioUnitario = precioUnitario * 0.75;
+                                        } else if (producto.getDescuento() == 30) {
+                                            precioUnitario = precioUnitario * 0.70;
+                                        }
 
                                         if (cliente instanceof ClienteMayorista) {
                                             precioUnitario = precioUnitario / 2; // precio mayorista
@@ -176,19 +183,18 @@ public class MenuPrincipal {
                                         }
 
                                         // Crear detalle
-                                        Detalle detalle = new Detalle(producto, cantidad);
+                                        Detalle detalle = new Detalle(producto, cantidad, precioUnitario);
                                         factura.agregarDetalle(detalle);
 
                                         // Actualizar stock
                                         producto.setStock(producto.getStock() - cantidad);
 
-                                        System.out.println("Detalle agregado: " + detalle);
+                                        System.out.println("Detalle agregado con exito ");
+                                        // Paso 5: Preguntar si sigue comprando
+                                        System.out.print("¿Desea agregar otro producto? (s/n): ");
+                                        String opcion = sc.next();
+                                        seguirComprando = opcion.equalsIgnoreCase("s");
                                     }
-
-                                // Paso 5: Preguntar si sigue comprando
-                                System.out.print("¿Desea agregar otro producto? (s/n): ");
-                                String opcion = sc.next();
-                                seguirComprando = opcion.equalsIgnoreCase("s");
                             
                                 // Paso 6: Guardar factura
                                 AgenteAdministrativo.realizarVenta(factura);
@@ -214,6 +220,9 @@ public class MenuPrincipal {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         byte op;
+        CollectionCliente.precargarCliente();
+        CollectionEmpleado.precargarEmpleado();
+        CollectionProducto.precargarProducto();
 
         do {
 

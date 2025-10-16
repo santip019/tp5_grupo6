@@ -3,13 +3,15 @@ package ar.edu.unju.escmi.tp5.dominio;
 public class Detalle {
     private int cantidad;
     private Producto producto;
+    private double precioCalculadoConDescuento;
 
     public Detalle() {
     }
 
-    public Detalle(Producto producto, int cantidad) {
+    public Detalle(Producto producto, int cantidad, double precioCalculadoConDescuento) {
         this.cantidad = cantidad;
         this.producto = producto;
+        this.precioCalculadoConDescuento = precioCalculadoConDescuento;
     }
 
     public Producto getProducto() {
@@ -29,8 +31,11 @@ public class Detalle {
     }
 
     public double calcularImporte() {
-        return cantidad * producto.getPrecio();
+        return cantidad * precioCalculadoConDescuento;
     }
-
+    
+    public double getPrecioCalculadoConDescuento() {
+        return precioCalculadoConDescuento;
+    }
 
 }
