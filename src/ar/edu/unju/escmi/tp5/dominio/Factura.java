@@ -8,7 +8,6 @@ public class Factura {
     private LocalDate fecha;
     private Cliente cliente;
     private List<Detalle> detalles = new ArrayList<>();
-
     private static int contador = 1;
     private int numeroFactura;
 
@@ -62,9 +61,9 @@ public class Factura {
         System.out.println("----- FACTURA -----");
         System.out.println("N°: " + getNumeroFactura());
         System.out.println("Fecha: " + fecha);
-        System.out.println("Cliente: " + cliente.nombre);
+        System.out.println("Cliente: " + cliente.nombre + " " + cliente.apellido );
         System.out.println("DNI: " + cliente.dni);
-        System.out.println("Dirección: " + cliente.domicilio);
+        System.out.println("Dirección: " + cliente.direccion);
         System.out.println("-------------------");
         System.out.println("DETALLE:");
         for (Detalle d : detalles) {

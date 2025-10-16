@@ -2,21 +2,23 @@ package ar.edu.unju.escmi.tp5.dominio;
 
 import ar.edu.unju.escmi.tp5.collections.CollectionFactura;
 
-public class Cliente {
+public abstract class Cliente {
     // Atributos protegidos
     protected int dni;
     protected String nombre;
-    protected String domicilio;
+    protected String apellido;
+    protected String direccion;
 
     public Cliente() {
         // Constructor vacio
     }
 
     // Constructor parametrizado
-    public Cliente(int dni, String nombre, String domicilio) {
+    public Cliente(int dni, String nombre, String direccion, String apellido) {
         this.dni = dni;
         this.nombre = nombre;
-        this.domicilio = domicilio;
+        this.direccion = direccion;
+        this.apellido = apellido;
     }
 
     // Getters y Setters
@@ -36,16 +38,24 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public String getDomicilio() {
-        return domicilio;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setDomicilio(String domicilio) {
-        this.domicilio = domicilio;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getdireccion() {
+        return direccion;
+    }
+
+    public void setdireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     // Método para buscar factura
-    public static void buscarFactura(byte numeroFactura) {
+    public static void buscarFactura(int numeroFactura) {
         Factura factura = CollectionFactura.buscarFactura(numeroFactura);
         if (factura != null) {
             System.out.println("Factura encontrada: ");
@@ -60,7 +70,8 @@ public class Cliente {
         return "Cliente{" +
                 "dni=" + dni +
                 ", nombre='" + nombre + '\'' +
-                ", domicilio='" + domicilio + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", direccion='" + direccion + '\'' +
                 '}';
     }
 

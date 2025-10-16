@@ -19,7 +19,7 @@ public class CollectionCliente {
     }
 
     public static void precargarCliente() {
-        clientes.put(123, new ClienteMayorista(123, "Carlos", "Av. Siempre Viva", 1001));
-        clientes.put(456, new ClienteMinorista(456, "Ana", "Calle Belgrano", "PAMI"));
+        clientes.put(123, new ClienteMayorista(123, "Carlos", "Av. Siempre Viva", "Suarez", 1001));
+        clientes.put(456, new ClienteMinorista(456, "Ana", "Calle Belgrano", "Ramirez", "PAMI"));
     }
 }
