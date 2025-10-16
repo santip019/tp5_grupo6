@@ -32,7 +32,8 @@ public class AgenteAdministrativo extends Empleado {
         // Paso 6: Guardar factura
         factura.calcularTotal();
         CollectionFactura.guardarFactura(factura);
-        System.out.println("Factura generada exitosamente:\n" + factura);
+        System.out.println("Factura generada exitosamente:\n");
+        factura.mostrarFactura();
     }
 
     @Override
