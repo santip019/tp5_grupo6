@@ -74,9 +74,3 @@ public abstract class Empleado {
                 '}';
     }
 }
-// Atributos del empleado:
-// *idEmpleado: int,
-// *nombre: String,
-// *apellido: String,
-// *dni: int,
-// *domicilio: String
