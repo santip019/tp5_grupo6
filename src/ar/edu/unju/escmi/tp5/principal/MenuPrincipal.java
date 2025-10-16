@@ -20,7 +20,7 @@ public class MenuPrincipal {
     static void menuCliente(Scanner sc) {
         byte op;
         do {
-            System.out.println("Menu de Clientes.");
+            System.out.println("\n **** Menu de Cliente ****");
             System.out.println("1 - Buscar Factura");
             System.out.println("2 - Salir");
             System.out.print("Ingrese una opcion: ");
@@ -33,10 +33,12 @@ public class MenuPrincipal {
                     System.out.print("Ingrese el numero de factura a buscar: ");
                     byte numeroFactura = sc.nextByte();
                     sc.nextLine(); // Para limpiar el buffer del scanner
-                    Cliente.buscarFactura(numeroFactura);
+                    Cliente.buscarFactura(numeroFactura); // muestra por consola la factura solicitada
+                    delay(3000); // pausa 3 segundos
                     break;
                 case 2:
                     System.out.println("Saliendo del Menu de Clientes...");
+                    delay(1000); // pausa 1 segundo
                     break;
                 default:
                     System.out.println("Opcion incorrecta. Intente nuevamente.");
@@ -50,7 +52,7 @@ public class MenuPrincipal {
         byte op2;
         byte op3;
         do {
-            System.out.println("Menu de Empleados.");
+            System.out.println("\n **** Menu de Empleados ****");
             System.out.println("1 - Menu Encargado de Ventas");
             System.out.println("2 - Menu Agente Administrativo");
             System.out.println("3 - Salir");
@@ -60,7 +62,7 @@ public class MenuPrincipal {
 
             switch (op) {
                 case 1:
-                    System.out.println("Menu Encargado de Ventas");
+                    System.out.println("\nMenu Encargado de Ventas");
                     do {
                         System.out.println("1 - Mostrar Ventas");
                         System.out.println("2 - Verificar Stock");
@@ -73,7 +75,8 @@ public class MenuPrincipal {
                         switch (op2) {
                             case 1:
                                 System.out.println("Mostrar ventas");
-                                EncargadoDeVentas.mostrarVentas(); // Muestra todas las ventas
+                                EncargadoDeVentas.mostrarVentas(); // Muestra todas las ventas enumeradas
+                                delay(3000); // pausa 3 segundos
                                 break;
                             case 2:
                                 System.out.println("Verificar Stock");
@@ -81,13 +84,16 @@ public class MenuPrincipal {
                                 int codigoProducto = sc.nextInt();
                                 EncargadoDeVentas.verificarStock(codigoProducto); // Pasa el código como argumento
                                 sc.nextLine(); // Limpiar el buffer
+                                delay(2000); // pausa 2 segundos
                                 break;
                             case 3:
                                 System.out.println("Mostrar Total de ventas");
-                                EncargadoDeVentas.mostrarTotalVentas();
+                                EncargadoDeVentas.mostrarTotalVentas(); // suma el total de todas la facturas
+                                delay(2000); // pausa 2 segundos
                                 break;
                             case 4:
                                 System.out.println("Saliendo del Menu Encargado de Ventas...");
+                                delay(1000); // pausa 1 segundo
                                 break;
                             default:
                                 System.out.println("Opcion incorrecta. Intente nuevamente.");
@@ -96,7 +102,7 @@ public class MenuPrincipal {
                     break;
 
                 case 2:
-                    System.out.println("Menu Agente Administrativo");
+                    System.out.println("\nMenu Agente Administrativo");
                     do {
                         System.out.println("1 - Dar Alta de Producto");
                         System.out.println("2 - Realizar Venta");
@@ -127,11 +133,12 @@ public class MenuPrincipal {
                                     }
                                 } while (descuento != 0 && descuento != 25 && descuento != 30);
 
-                                Producto productoNuevo = new Producto(codigoProducto, descripcion, precioUnitarioNuevo, descuento);
+                                Producto productoNuevo = new Producto(codigoProducto, descripcion, precioUnitarioNuevo, descuento); //se crea el nuevo producto con los datos proporcionados
 
                                 AgenteAdministrativo.altaProducto(productoNuevo);
 
                                 System.out.println("Producto dado de alta correctamente.");
+                                delay(2000); // pausa 2 segundos
                                 break;
                             case 2:
                                 System.out.println("Realizar Venta");
@@ -198,9 +205,11 @@ public class MenuPrincipal {
                             
                                 // Paso 6: Guardar factura
                                 AgenteAdministrativo.realizarVenta(factura);
+                                delay(3000); // pausa 3 segundos
                                 break;
                             case 3:
                                 System.out.println("Saliendo del Menu Agente Administrativo...");
+                                delay(1000); // pausa 1 segundos
                                 break;
                             default:
                                 System.out.println("Opcion incorrecta. Intente nuevamente.");
@@ -209,6 +218,7 @@ public class MenuPrincipal {
                     break;
                 case 3:
                     System.out.println("Saliendo del Menu de Empleados...");
+                    delay(1000);
                     break;
                 default:
                     System.out.println("Opcion incorrecta. Intente nuevamente.");
@@ -252,4 +262,14 @@ public class MenuPrincipal {
 
         sc.close();
     }
+
+    
+    //metodo para agregar una pausa luego de ejecutar cada opcion del menú (mejor visibilidad)
+    public static void delay(int milisegundos) {
+    try {
+        Thread.sleep(milisegundos);
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
+}
 }

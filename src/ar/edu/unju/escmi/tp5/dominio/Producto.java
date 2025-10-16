@@ -64,10 +64,3 @@ public class Producto {
     }
 
 }
-
-// Atributos
-// codigoProducto int;
-// descripcion String;
-// precio double;
-// stock int;
-// descuento double;
